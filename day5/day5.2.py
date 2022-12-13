@@ -31,5 +31,4 @@ crates_top = ''
 for i in range(0, 9, 1): # read the tops of the crates
     crates_top += crates[i][-1]
 
-print(crates)
 print(crates_top)
