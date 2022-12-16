@@ -38,12 +38,14 @@ for dir in path_dir:
     dir_sizes[ndir] += accu_size  # añado al dir donde estaba el tamaño
     path_dir.pop()
 
-response = 0
+min = 0
+free_space = 70000000-dir_sizes['/']
 for dir in dir_sizes:
-    if dir_sizes[dir] <= 100000:
-        response += dir_sizes[dir]
+    if (dir_sizes[dir] + free_space) >= 30000000:
+        if (min == 0) or (dir_sizes[dir] < min):
+            min = dir_sizes[dir]
 
-print(response)
+print(min)
 
 #1068023 -> too low
 #1567808 -> too high
